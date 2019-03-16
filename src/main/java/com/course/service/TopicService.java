@@ -17,4 +17,12 @@ public class TopicService {
 	public List<Topic> getAllTopics(){
 		return topics;
 	}
+	
+	public Topic getTopic(String id) {
+		try {
+			return topics.stream().filter(topic -> topic.getId().equals(id)).findFirst().get();
+		} catch(Exception e) {
+			return new Topic(id,"No Topic Name Found","No Desciption Found");
+		}
+	}
 }
