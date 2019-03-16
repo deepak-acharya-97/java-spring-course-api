@@ -30,8 +30,7 @@ public class TopicService {
 	}
 	
 	public void deleteTopic(String id) {
-		Topic topic=topics.stream().filter(t -> t.getId().equals(id)).findFirst().get();
-		topics.remove(topic);
+		topics.removeIf(t -> t.getId().equals(id));
 	}
 	
 }
