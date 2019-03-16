@@ -12,8 +12,14 @@ import com.course.service.TopicService;
 public class TopicController {
 	@Autowired
 	private TopicService topicService;
+	
 	@RequestMapping("/topics")
 	public List<Topic> getTopics() {
 		return topicService.getAllTopics();
+	}
+	
+	@RequestMapping("/topics/{id}")
+	public Topic getTopic(@PathVariable String id) {
+		return topicService.getTopic(id);
 	}
 }
