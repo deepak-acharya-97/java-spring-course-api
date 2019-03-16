@@ -1,20 +1,19 @@
 package com.course.controller;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.course.model.Topic;
+import com.course.service.TopicService;
 
 @RestController
 public class TopicController {
+	@Autowired
+	private TopicService topicService;
 	@RequestMapping("/topics")
 	public List<Topic> getTopics() {
-		return Arrays.asList(
-				new Topic("987","Data Structures","Trees"),
-				new Topic("899","UNIX Programming","vi commands"),
-				new Topic("677","Operating Systems","pagination")
-		);
+		return topicService.getAllTopics();
 	}
 }
