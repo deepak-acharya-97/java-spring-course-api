@@ -5,6 +5,7 @@ import java.util.*;
 import org.springframework.stereotype.Service;
 
 import com.course.model.Topic;
+import com.course.utility.Utilities.Utility;
 
 @Service
 public class TopicService {
@@ -19,11 +20,9 @@ public class TopicService {
 	}
 	
 	public Topic getTopic(String id) {
-		try {
-			return topics.stream().filter(topic -> topic.getId().equals(id)).findFirst().get();
-		} catch(Exception e) {
-			return new Topic(id,"No Topic Name Found","No Desciption Found");
-		}
+		Topic topic = topics.stream().filter(t -> t.getId().equals(id)).findFirst().get();
+		if(Utility.isNotNull(topic)) return topic;
+		else return new Topic(id,"No Topic Name Found","No Desciption Found");
 	}
 	
 	public void addTopic(Topic topic) {

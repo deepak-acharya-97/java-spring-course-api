@@ -6,6 +6,6 @@ import org.springframework.web.bind.annotation.*;
 public class HomeController {
 	@RequestMapping("/hello")
 	public String sayHi() {
-		return "Hi Deepak";
+		return "Hi";
 	}
 }

@@ -8,9 +8,7 @@ public class Topic {
 		this.name = name;
 		this.description = description;
 	}
-	public Topic() {
-		
-	}
+	public Topic() {}
 	private String description;
 	public String getId() {
 		return id;

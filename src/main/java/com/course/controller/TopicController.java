@@ -14,7 +14,7 @@ public class TopicController {
 	private TopicService topicService;
 	
 	@RequestMapping("/topics")
-	public List<Topic> getTopics() {
+	public List<Topic> getAllTopics() {
 		return topicService.getAllTopics();
 	}
 	
