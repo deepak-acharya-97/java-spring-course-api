@@ -1,6 +1,10 @@
 package com.course.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Topic {
+	@Id
 	private String id;
 	private String name;
 	public Topic(String id, String name, String description) {
