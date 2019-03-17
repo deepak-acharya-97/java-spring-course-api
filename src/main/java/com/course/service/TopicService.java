@@ -33,4 +33,14 @@ public class TopicService {
 		topics.removeIf(t -> t.getId().equals(id));
 	}
 	
+	public void updateTopic(String id, Topic topic) {
+		Topic currentTopic = topics.stream().filter(t -> t.getId().equals(id)).findFirst().get();
+		if(Utility.isNotNull(currentTopic)) {
+			String updatedName = Utility.isNotNull(topic.getName()) ? topic.getName() : currentTopic.getName();
+			String updatedDescription = Utility.isNotNull(topic.getDescription()) ? topic.getDescription() : currentTopic.getDescription();
+			currentTopic.setName(updatedName);
+			currentTopic.setDescription(updatedDescription);
+		}
+	}
+	
 }
